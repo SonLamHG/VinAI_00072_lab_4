@@ -37,7 +37,7 @@ SYSTEM_PROMPT = load_system_prompt()
 tools = [search_flights, search_hotels, calculate_budget]
 
 # Khởi tạo LLM với tool binding
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+llm = ChatOpenAI(model="gpt-4.1-mini", temperature=0)
 llm_with_tools = llm.bind_tools(tools, parallel_tool_calls=False)
 
 

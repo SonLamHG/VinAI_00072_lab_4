@@ -11,264 +11,51 @@ logger = logging.getLogger("travel_tools")
 
 FLIGHTS_DB: dict[tuple[str, str], list[dict]] = {
     ("Hà Nội", "Đà Nẵng"): [
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN156",
-            "departure": "06:00",
-            "arrival": "07:20",
-            "price": 1450000,
-            "class": "Economy",
-        },
-        {
-            "airline": "VietJet Air",
-            "flight_number": "VJ523",
-            "departure": "08:30",
-            "arrival": "09:50",
-            "price": 890000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Bamboo Airways",
-            "flight_number": "QH202",
-            "departure": "12:00",
-            "arrival": "13:20",
-            "price": 1100000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN158",
-            "departure": "18:00",
-            "arrival": "19:20",
-            "price": 2500000,
-            "class": "Business",
-        },
+        {"airline": "Vietnam Airlines", "departure": "06:00", "arrival": "07:20", "price": 1_450_000, "class": "economy"},
+        {"airline": "Vietnam Airlines", "departure": "14:00", "arrival": "15:20", "price": 2_800_000, "class": "business"},
+        {"airline": "VietJet Air", "departure": "08:30", "arrival": "09:50", "price": 890_000, "class": "economy"},
+        {"airline": "Bamboo Airways", "departure": "11:00", "arrival": "12:20", "price": 1_200_000, "class": "economy"},
     ],
     ("Hà Nội", "Phú Quốc"): [
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN245",
-            "departure": "07:00",
-            "arrival": "09:15",
-            "price": 1800000,
-            "class": "Economy",
-        },
-        {
-            "airline": "VietJet Air",
-            "flight_number": "VJ681",
-            "departure": "10:30",
-            "arrival": "12:45",
-            "price": 1100000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Bamboo Airways",
-            "flight_number": "QH305",
-            "departure": "14:00",
-            "arrival": "16:15",
-            "price": 1350000,
-            "class": "Economy",
-        },
+        {"airline": "Vietnam Airlines", "departure": "07:00", "arrival": "09:15", "price": 2_100_000, "class": "economy"},
+        {"airline": "VietJet Air", "departure": "10:00", "arrival": "12:15", "price": 1_350_000, "class": "economy"},
+        {"airline": "VietJet Air", "departure": "16:00", "arrival": "18:15", "price": 1_100_000, "class": "economy"},
     ],
     ("Hà Nội", "Hồ Chí Minh"): [
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN201",
-            "departure": "06:00",
-            "arrival": "08:10",
-            "price": 1600000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN209",
-            "departure": "14:00",
-            "arrival": "16:10",
-            "price": 3200000,
-            "class": "Business",
-        },
-        {
-            "airline": "VietJet Air",
-            "flight_number": "VJ133",
-            "departure": "09:00",
-            "arrival": "11:10",
-            "price": 990000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Bamboo Airways",
-            "flight_number": "QH101",
-            "departure": "17:00",
-            "arrival": "19:10",
-            "price": 1200000,
-            "class": "Economy",
-        },
+        {"airline": "Vietnam Airlines", "departure": "06:00", "arrival": "08:10", "price": 1_600_000, "class": "economy"},
+        {"airline": "VietJet Air", "departure": "07:30", "arrival": "09:40", "price": 950_000, "class": "economy"},
+        {"airline": "Bamboo Airways", "departure": "12:00", "arrival": "14:10", "price": 1_300_000, "class": "economy"},
+        {"airline": "Vietnam Airlines", "departure": "18:00", "arrival": "20:10", "price": 3_200_000, "class": "business"},
     ],
     ("Hồ Chí Minh", "Đà Nẵng"): [
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN312",
-            "departure": "07:30",
-            "arrival": "08:50",
-            "price": 1200000,
-            "class": "Economy",
-        },
-        {
-            "airline": "VietJet Air",
-            "flight_number": "VJ452",
-            "departure": "11:00",
-            "arrival": "12:20",
-            "price": 650000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Bamboo Airways",
-            "flight_number": "QH150",
-            "departure": "15:30",
-            "arrival": "16:50",
-            "price": 850000,
-            "class": "Economy",
-        },
+        {"airline": "Vietnam Airlines", "departure": "09:00", "arrival": "10:20", "price": 1_300_000, "class": "economy"},
+        {"airline": "VietJet Air", "departure": "13:00", "arrival": "14:20", "price": 780_000, "class": "economy"},
     ],
     ("Hồ Chí Minh", "Phú Quốc"): [
-        {
-            "airline": "Vietnam Airlines",
-            "flight_number": "VN405",
-            "departure": "08:00",
-            "arrival": "09:00",
-            "price": 950000,
-            "class": "Economy",
-        },
-        {
-            "airline": "VietJet Air",
-            "flight_number": "VJ789",
-            "departure": "12:00",
-            "arrival": "13:00",
-            "price": 550000,
-            "class": "Economy",
-        },
-        {
-            "airline": "Bamboo Airways",
-            "flight_number": "QH410",
-            "departure": "16:00",
-            "arrival": "17:00",
-            "price": 750000,
-            "class": "Economy",
-        },
+        {"airline": "Vietnam Airlines", "departure": "08:00", "arrival": "09:00", "price": 1_100_000, "class": "economy"},
+        {"airline": "VietJet Air", "departure": "15:00", "arrival": "16:00", "price": 650_000, "class": "economy"},
     ],
 }
 
 HOTELS_DB: dict[str, list[dict]] = {
     "Đà Nẵng": [
-        {
-            "name": "Vinpearl Resort & Spa Đà Nẵng",
-            "stars": 5,
-            "price_per_night": 2500000,
-            "area": "Bãi biển Non Nước",
-            "rating": 4.8,
-        },
-        {
-            "name": "Pullman Danang Beach Resort",
-            "stars": 5,
-            "price_per_night": 2200000,
-            "area": "Bãi biển Mỹ Khê",
-            "rating": 4.7,
-        },
-        {
-            "name": "Sala Danang Beach Hotel",
-            "stars": 4,
-            "price_per_night": 1200000,
-            "area": "Bãi biển Mỹ Khê",
-            "rating": 4.5,
-        },
-        {
-            "name": "Fivitel Danang Hotel",
-            "stars": 3,
-            "price_per_night": 650000,
-            "area": "Trung tâm thành phố",
-            "rating": 4.2,
-        },
-        {
-            "name": "Memory Hostel Đà Nẵng",
-            "stars": 2,
-            "price_per_night": 250000,
-            "area": "Gần cầu Rồng",
-            "rating": 4.0,
-        },
+        {"name": "Mường Thanh Luxury", "stars": 5, "price_per_night": 1_800_000, "area": "Mỹ Khê", "rating": 4.5},
+        {"name": "Sala Danang Beach", "stars": 4, "price_per_night": 1_200_000, "area": "Mỹ Khê", "rating": 4.3},
+        {"name": "Fivitel Danang", "stars": 3, "price_per_night": 650_000, "area": "Sơn Trà", "rating": 4.1},
+        {"name": "Memory Hostel", "stars": 2, "price_per_night": 250_000, "area": "Hải Châu", "rating": 4.6},
+        {"name": "Christina's Homestay", "stars": 2, "price_per_night": 350_000, "area": "An Thượng", "rating": 4.7},
     ],
     "Phú Quốc": [
-        {
-            "name": "Vinpearl Resort Phú Quốc",
-            "stars": 5,
-            "price_per_night": 3000000,
-            "area": "Bãi Dài",
-            "rating": 4.9,
-        },
-        {
-            "name": "Sol Beach House Phú Quốc",
-            "stars": 4,
-            "price_per_night": 1800000,
-            "area": "Bãi Trường",
-            "rating": 4.6,
-        },
-        {
-            "name": "Camia Resort & Spa",
-            "stars": 4,
-            "price_per_night": 1200000,
-            "area": "Ông Lang",
-            "rating": 4.4,
-        },
-        {
-            "name": "Phu Quoc Dragon Hotel",
-            "stars": 3,
-            "price_per_night": 550000,
-            "area": "Thị trấn Dương Đông",
-            "rating": 4.1,
-        },
-        {
-            "name": "9Station Hostel Phú Quốc",
-            "stars": 2,
-            "price_per_night": 200000,
-            "area": "Thị trấn Dương Đông",
-            "rating": 3.9,
-        },
+        {"name": "Vinpearl Resort", "stars": 5, "price_per_night": 3_500_000, "area": "Bãi Dài", "rating": 4.4},
+        {"name": "Sol by Meliá", "stars": 4, "price_per_night": 1_500_000, "area": "Bãi Trường", "rating": 4.2},
+        {"name": "Lahana Resort", "stars": 3, "price_per_night": 800_000, "area": "Dương Đông", "rating": 4.0},
+        {"name": "9Station Hostel", "stars": 2, "price_per_night": 200_000, "area": "Dương Đông", "rating": 4.5},
     ],
     "Hồ Chí Minh": [
-        {
-            "name": "Rex Hotel Saigon",
-            "stars": 5,
-            "price_per_night": 2800000,
-            "area": "Quận 1",
-            "rating": 4.7,
-        },
-        {
-            "name": "Liberty Central Saigon",
-            "stars": 4,
-            "price_per_night": 1500000,
-            "area": "Quận 1",
-            "rating": 4.5,
-        },
-        {
-            "name": "Alagon Saigon Hotel",
-            "stars": 3,
-            "price_per_night": 800000,
-            "area": "Quận 1",
-            "rating": 4.3,
-        },
-        {
-            "name": "Beautiful Saigon Hotel",
-            "stars": 3,
-            "price_per_night": 500000,
-            "area": "Quận 3",
-            "rating": 4.0,
-        },
-        {
-            "name": "The Common Room Project",
-            "stars": 2,
-            "price_per_night": 180000,
-            "area": "Quận 1",
-            "rating": 4.2,
-        },
+        {"name": "Rex Hotel", "stars": 5, "price_per_night": 2_800_000, "area": "Quận 1", "rating": 4.3},
+        {"name": "Liberty Central", "stars": 4, "price_per_night": 1_400_000, "area": "Quận 1", "rating": 4.1},
+        {"name": "Cochin Zen Hotel", "stars": 3, "price_per_night": 550_000, "area": "Quận 3", "rating": 4.4},
+        {"name": "The Common Room", "stars": 2, "price_per_night": 180_000, "area": "Quận 1", "rating": 4.6},
     ],
 }
 
@@ -322,7 +109,7 @@ def search_flights(origin: str, destination: str) -> str:
         result = f"Các chuyến bay từ {origin} đến {destination}:\n\n"
         for i, flight in enumerate(flights, 1):
             result += (
-                f"{i}. {flight['airline']} ({flight['flight_number']})\n"
+                f"{i}. {flight['airline']}\n"
                 f"   Giờ bay: {flight['departure']} → {flight['arrival']}\n"
                 f"   Hạng: {flight['class']}\n"
                 f"   Giá: {format_price(flight['price'])}\n\n"
@@ -336,12 +123,12 @@ def search_flights(origin: str, destination: str) -> str:
 
 
 @tool
-def search_hotels(city: str, max_price_per_night: int = 0) -> str:
-    """Tìm khách sạn tại một thành phố Việt Nam.
+def search_hotels(city: str, max_price_per_night: int = 99999999) -> str:
+    """Tìm kiếm khách sạn tại một thành phố, có thể lọc theo giá tối đa mỗi đêm.
 
     Args:
         city: Tên thành phố (VD: Đà Nẵng, Phú Quốc, Hồ Chí Minh)
-        max_price_per_night: Giá tối đa mỗi đêm (VNĐ). Đặt 0 để không giới hạn.
+        max_price_per_night: Giá tối đa mỗi đêm (VNĐ), mặc định không giới hạn.
     """
     city = city.strip()
     logger.info("search_hotels called: city='%s', max_price=%d", city, max_price_per_night)
@@ -362,12 +149,9 @@ def search_hotels(city: str, max_price_per_night: int = 0) -> str:
                 f"Các thành phố hiện có: {available_cities}"
             )
 
-        # Lọc theo giá nếu có
-        if max_price_per_night > 0:
-            filtered = [h for h in hotels if h["price_per_night"] <= max_price_per_night]
-            logger.info("Lọc theo giá <= %s: %d/%d khách sạn", format_price(max_price_per_night), len(filtered), len(hotels))
-        else:
-            filtered = hotels
+        # Lọc theo giá
+        filtered = [h for h in hotels if h["price_per_night"] <= max_price_per_night]
+        logger.info("Lọc theo giá <= %s: %d/%d khách sạn", format_price(max_price_per_night), len(filtered), len(hotels))
 
         if not filtered:
             cheapest = min(hotels, key=lambda h: h["price_per_night"])

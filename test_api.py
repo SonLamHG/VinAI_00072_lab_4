@@ -8,7 +8,7 @@ load_dotenv()
 
 def test_api():
     try:
-        llm = ChatOpenAI(model="gpt-4o-mini")
+        llm = ChatOpenAI(model="gpt-4.1-mini")
         response = llm.invoke("Say hello in Vietnamese")
         print("Kết nối API thành công!")
         print(f"Response: {response.content}")
